@@ -1,0 +1,13 @@
+﻿//Screen Width and Height = 800, so grid width and height = 25
+//Need to figure out a way to allow interpolated walls.
+-room_1
+0,0,3
+0,1-23,0
+0,24,4
+1-23,24,1
+24,24,6
+1-23,24,0
+0,24,5
+0,1-23,1
+-room_2
+::EOF::
