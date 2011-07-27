@@ -117,9 +117,9 @@
     <Compile Include="Wall.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\x86\Debug\gen_data\rooms.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="gen_data\rooms.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\s_scrollContent\s_scrollContent.contentproj">
