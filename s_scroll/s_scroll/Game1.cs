@@ -25,6 +25,8 @@ namespace r_like
         Grid grid;
         Player player;
         Wall wall;
+        RoomGen room_gen;
+        List<RoomGen.wall_positions> walls = new List<RoomGen.wall_positions>();
 
         public r_like()
         {
@@ -49,6 +51,8 @@ namespace r_like
 
             player = new Player(grid);
             wall = new Wall(grid);
+            room_gen = new RoomGen();
+            room_gen.Initialize();
             base.Initialize();
         }
 
@@ -60,9 +64,15 @@ namespace r_like
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            player.LoadTexture(this.Content, "at");
+            player.LoadTexture(this.Content, "player");
             grid.LoadTexture(this.Content, "grid_square");
             wall.LoadTexture(this.Content, "wall");
+
+            for (int i = 0; i < room_gen.GetRoomTypesSize(); i++)
+            {
+                walls.Add(room_gen.GetWallPositions(i));
+                Console.WriteLine(walls[i].TYPE);
+            }
             
         }
 
@@ -104,11 +114,11 @@ namespace r_like
             grid.DrawGrid(spriteBatch);
             player.Draw(spriteBatch);
 
-            
+            for (int i = 0; i < walls.Count; i++)
+            {
+                wall.Draw(spriteBatch, walls[i].X, walls[i].Y, walls[i].TYPE);
+            }
 
-            //
-            //Allow the grid to store (pointers?) some sort of reference to every wall, creature etc.
-            //
             spriteBatch.End();
 
             // TODO: Add your drawing code here

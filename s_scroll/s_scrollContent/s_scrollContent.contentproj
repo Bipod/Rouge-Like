@@ -42,13 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="at.png">
-      <Name>at</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="wall.png">
       <Name>wall</Name>
       <Importer>TextureImporter</Importer>
@@ -58,6 +51,13 @@
   <ItemGroup>
     <Compile Include="grid_square.png">
       <Name>grid_square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="player.png">
+      <Name>player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "s_scroll", "s_scroll\s_scroll\s_scroll.csproj", "{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "r_like", "s_scroll\s_scroll\r_like.csproj", "{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "s_scrollContent", "s_scroll\s_scrollContent\s_scrollContent.contentproj", "{0390D1D5-3C08-4EA9-B38C-B4EBA7A2E5F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "s_scrollContent", "s_scroll\s_scrollContent\s_scrollContent.contentproj", "{0390D1D5-3C08-4EA9-B38C-B4EBA7A2E5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

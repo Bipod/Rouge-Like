@@ -15,7 +15,8 @@ namespace r_like
         const int SCREEN_WIDTH = 800;
         const int SCREEN_HEIGHT = 800;
 
-        private Texture2D texture;
+        private Texture2D texture_sheet;
+        private Rectangle src_rect = new Rectangle(0, 0, 32, 32);
 
         struct grid_position
         {
@@ -34,14 +35,14 @@ namespace r_like
 
         public void LoadTexture(ContentManager conMan, string name)
         {
-            texture = conMan.Load<Texture2D>(name);
+            texture_sheet = conMan.Load<Texture2D>(name);
             position.X = (SCREEN_WIDTH / 2) / 32;
             position.Y = (SCREEN_HEIGHT / 2) / 32;
         }
 
         public void Draw(SpriteBatch sprBat)
         {
-            grid.MoveSpriteToGrid(sprBat, texture, old_position.X, old_position.Y, position.X, position.Y);
+            grid.MoveSpriteToGrid(sprBat, texture_sheet, src_rect, old_position.X, old_position.Y, position.X, position.Y);
         }
 
         public void Update()
@@ -55,13 +56,25 @@ namespace r_like
             old_position = position;
 
             if (old_state.IsKeyUp(Keys.W) && cur_state.IsKeyDown(Keys.W) && !grid.IsGridSpotFull(position.X, position.Y - 1))
+            {
                 position.Y--;
+                src_rect = new Rectangle(32, 32, 32, 32);
+            }
             else if (old_state.IsKeyUp(Keys.A) && cur_state.IsKeyDown(Keys.A) && !grid.IsGridSpotFull(position.X - 1, position.Y))
+            {
                 position.X--;
+                src_rect = new Rectangle(32, 0, 32, 32);
+            }
             if (old_state.IsKeyUp(Keys.S) && cur_state.IsKeyDown(Keys.S) && !grid.IsGridSpotFull(position.X, position.Y + 1))
+            {
                 position.Y++;
+                src_rect = new Rectangle(0, 32, 32, 32);
+            }
             else if (old_state.IsKeyUp(Keys.D) && cur_state.IsKeyDown(Keys.D) && !grid.IsGridSpotFull(position.X + 1, position.Y))
+            {
                 position.X++;
+                src_rect = new Rectangle(0, 0, 32, 32);
+            }
 
             old_state = cur_state;
         }
