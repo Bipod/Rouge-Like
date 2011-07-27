@@ -47,13 +47,13 @@ namespace r_like
             grid.MoveSpriteToGrid(sprBat, texture_sheet, src_rect, old_position.X, old_position.Y, position.X, position.Y);
         }
 
-        public void Update()
+        public bool Update()
         {
             KeyboardState cur_state = Keyboard.GetState();
-            Move(cur_state);
+            return Move(cur_state);
         }
 
-        public void Move(KeyboardState cur_state)
+        public bool Move(KeyboardState cur_state)
         {
             old_position = position;
 
@@ -63,6 +63,7 @@ namespace r_like
                 src_rect = new Rectangle(32, 32, 32, 32);
                 cur_time = 0;
                 old_time = 0;
+                return true;
             }
             else if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.A) && !grid.IsGridSpotFull(position.X - 1, position.Y))
             {
@@ -70,6 +71,7 @@ namespace r_like
                 src_rect = new Rectangle(32, 0, 32, 32);
                 cur_time = 0;
                 old_time = 0;
+                return true;
             }
             if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.S) && !grid.IsGridSpotFull(position.X, position.Y + 1))
             {
@@ -77,6 +79,7 @@ namespace r_like
                 src_rect = new Rectangle(0, 32, 32, 32);
                 cur_time = 0;
                 old_time = 0;
+                return true;
             }
             else if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.D) && !grid.IsGridSpotFull(position.X + 1, position.Y))
             {
@@ -84,9 +87,11 @@ namespace r_like
                 src_rect = new Rectangle(0, 0, 32, 32);
                 cur_time = 0;
                 old_time = 0;
+                return true;
             }
             cur_time += 1;
             old_state = cur_state;
+            return false;
         }
 
     }
