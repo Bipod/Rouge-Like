@@ -34,19 +34,7 @@ namespace r_like
         // All four
         // 11.) UDLR
         Rectangle[] textures = new Rectangle[11];
-
-        //static Rectangle LR = new Rectangle(0, 0, TEXTURE_WIDTH, TEXTURE_HEIGHT);         //1
-        //static Rectangle UD = new Rectangle(32, 0, TEXTURE_WIDTH, TEXTURE_HEIGHT);        //2
-        //static Rectangle DR = new Rectangle(0, 32, TEXTURE_WIDTH, TEXTURE_HEIGHT);        //3
-        //static Rectangle DL = new Rectangle(32, 32, TEXTURE_WIDTH, TEXTURE_HEIGHT);       //4
-        //static Rectangle UR = new Rectangle(0, 64, TEXTURE_WIDTH, TEXTURE_HEIGHT);        //5
-        //static Rectangle UL = new Rectangle(32, 64, TEXTURE_WIDTH, TEXTURE_HEIGHT);       //6
-        //static Rectangle UDR = new Rectangle(0, 96, TEXTURE_WIDTH, TEXTURE_HEIGHT);       //7
-        //static Rectangle UDL = new Rectangle(32, 96, TEXTURE_WIDTH, TEXTURE_HEIGHT);      //8
-        //static Rectangle ULR = new Rectangle(0, 128, TEXTURE_WIDTH, TEXTURE_HEIGHT);      //9
-        //static Rectangle DLR = new Rectangle(32, 128, TEXTURE_WIDTH, TEXTURE_HEIGHT);     //10
-        //static Rectangle UDLR = new Rectangle(0, 160, TEXTURE_WIDTH, TEXTURE_HEIGHT);     //11
-
+        
         private Texture2D texture_sheet;
         public Vector2 position;
         private Grid grid;
