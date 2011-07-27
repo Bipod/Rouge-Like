@@ -1,4 +1,5 @@
 ﻿//Screen Width and Height = 800, so grid width and height = 25
+//Move to Debug folder.
 :room_1
 0,0,2
 1-23,0,0
