@@ -7,7 +7,7 @@ namespace r_like
 {
     class RoomGen
     {
-        //string line;
+        
         string[] file;
         struct wall_positions
         {
