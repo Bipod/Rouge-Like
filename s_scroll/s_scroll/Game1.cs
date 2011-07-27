@@ -73,7 +73,7 @@ namespace r_like
                 walls.Add(room_gen.GetWallPositions(i));
                 Console.WriteLine(walls[i].TYPE);
             }
-            
+
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace r_like
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            
+
             spriteBatch.Begin();
             grid.DrawGrid(spriteBatch);
             player.Draw(spriteBatch);

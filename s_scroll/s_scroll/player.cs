@@ -17,6 +17,8 @@ namespace r_like
 
         private Texture2D texture_sheet;
         private Rectangle src_rect = new Rectangle(0, 0, 32, 32);
+        private float cur_time = 0;
+        private float old_time;
 
         struct grid_position
         {
@@ -55,27 +57,35 @@ namespace r_like
         {
             old_position = position;
 
-            if (old_state.IsKeyUp(Keys.W) && cur_state.IsKeyDown(Keys.W) && !grid.IsGridSpotFull(position.X, position.Y - 1))
+            if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.W) && !grid.IsGridSpotFull(position.X, position.Y - 1))
             {
                 position.Y--;
                 src_rect = new Rectangle(32, 32, 32, 32);
+                cur_time = 0;
+                old_time = 0;
             }
-            else if (old_state.IsKeyUp(Keys.A) && cur_state.IsKeyDown(Keys.A) && !grid.IsGridSpotFull(position.X - 1, position.Y))
+            else if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.A) && !grid.IsGridSpotFull(position.X - 1, position.Y))
             {
                 position.X--;
                 src_rect = new Rectangle(32, 0, 32, 32);
+                cur_time = 0;
+                old_time = 0;
             }
-            if (old_state.IsKeyUp(Keys.S) && cur_state.IsKeyDown(Keys.S) && !grid.IsGridSpotFull(position.X, position.Y + 1))
+            if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.S) && !grid.IsGridSpotFull(position.X, position.Y + 1))
             {
                 position.Y++;
                 src_rect = new Rectangle(0, 32, 32, 32);
+                cur_time = 0;
+                old_time = 0;
             }
-            else if (old_state.IsKeyUp(Keys.D) && cur_state.IsKeyDown(Keys.D) && !grid.IsGridSpotFull(position.X + 1, position.Y))
+            else if (cur_time - old_time > 7 && cur_state.IsKeyDown(Keys.D) && !grid.IsGridSpotFull(position.X + 1, position.Y))
             {
                 position.X++;
                 src_rect = new Rectangle(0, 0, 32, 32);
+                cur_time = 0;
+                old_time = 0;
             }
-
+            cur_time += 1;
             old_state = cur_state;
         }
 

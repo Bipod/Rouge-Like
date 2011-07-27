@@ -56,7 +56,7 @@ namespace r_like
             int is_zero = 0;
             for (int i = 0; i < 11; i++)
             {
-                textures[i] = new Rectangle(is_zero, i % 2 == 0 || i == 0 ? i * 16 : (i - 1) * 16, TEXTURE_WIDTH, TEXTURE_HEIGHT); 
+                textures[i] = new Rectangle(is_zero, i % 2 == 0 || i == 0 ? i * 16 : (i - 1) * 16, TEXTURE_WIDTH, TEXTURE_HEIGHT);
                 // new Rectangle(either 0 or 32, i * 32 i is even, (i - 1) * 32 if it's odd (to get the right number), 32, 32)
 
                 is_zero = is_zero == 32 ? 0 : 32;
@@ -73,7 +73,8 @@ namespace r_like
 
         public void Draw(SpriteBatch sprBat, int x, int y, int type)
         {
-            switch(type){
+            switch (type)
+            {
                 case 0:
                     grid.AddSpriteToGrid(sprBat, texture_sheet, textures[0], x, y);
                     break;

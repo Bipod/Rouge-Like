@@ -7,7 +7,6 @@ namespace r_like
 {
     class RoomGen
     {
-        
         string[] file;
         public struct wall_positions
         {
@@ -25,12 +24,12 @@ namespace r_like
 
             for (int i = 0; i < file.Length; i++)
             {
-                if(file[i].StartsWith(":") && !reading_room_in)
+                if (file[i].StartsWith(":") && !reading_room_in)
                     reading_room_in = true;
 
                 else if (reading_room_in)
                 {
-                    if(file[i].StartsWith(":"))
+                    if (file[i].StartsWith(":"))
                         break;
 
                     line = file[i];
@@ -42,12 +41,13 @@ namespace r_like
                     {
                         int lower_bound = Convert.ToInt32(line.Substring(0, line.IndexOf('-')));
                         int upper_bound = Convert.ToInt32(line.Substring(line.IndexOf('-') + 1, line.IndexOf(',', line.IndexOf('-')) - line.IndexOf('-') - 1)) + 1;
-                        
+
                         int count = 0;
                         int y = Convert.ToInt32(line.Substring(line.IndexOf(',') + 1, line.IndexOf(',', line.IndexOf(',') + 1) - line.IndexOf(',') - 1));
                         temp = new wall_positions[upper_bound];
                         int type = Convert.ToInt32(line.Substring(line.IndexOf(',', line.IndexOf(',') + 1) + 1));
-                        for (int j = lower_bound; j < upper_bound; j++){
+                        for (int j = lower_bound; j < upper_bound; j++)
+                        {
                             temp[count].X = j;
                             temp[count].Y = y;
                             temp[count].TYPE = type;
@@ -75,7 +75,7 @@ namespace r_like
                             count++;
                         }
                     }
-                    else if(!line.StartsWith("//") && !line.StartsWith(":") && line.IndexOf('-') == -1)
+                    else if (!line.StartsWith("//") && !line.StartsWith(":") && line.IndexOf('-') == -1)
                     {
                         wall_positions t;
                         t.X = Convert.ToInt32(line.Substring(0, line.IndexOf(',')));
@@ -84,7 +84,7 @@ namespace r_like
                         room_type.Add(t);
 
                     }
-                    
+
                 }
 
             }
