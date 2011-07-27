@@ -73,42 +73,7 @@ namespace r_like
 
         public void Draw(SpriteBatch sprBat, int x, int y, int type)
         {
-            switch (type)
-            {
-                case 0:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[0], x, y);
-                    break;
-                case 1:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[1], x, y);
-                    break;
-                case 2:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[2], x, y);
-                    break;
-                case 3:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[3], x, y);
-                    break;
-                case 4:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[4], x, y);
-                    break;
-                case 5:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[5], x, y);
-                    break;
-                case 6:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[6], x, y);
-                    break;
-                case 7:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[7], x, y);
-                    break;
-                case 8:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[8], x, y);
-                    break;
-                case 9:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[9], x, y);
-                    break;
-                case 10:
-                    grid.AddSpriteToGrid(sprBat, texture_sheet, textures[10], x, y);
-                    break;
-            }
+            grid.AddSpriteToGrid(sprBat, texture_sheet, textures[type], x, y);
 
             position = new Vector2(x, y);
         }

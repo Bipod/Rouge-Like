@@ -82,11 +82,8 @@ namespace r_like
                         t.Y = Convert.ToInt32(line.Substring(line.IndexOf(',') + 1, line.IndexOf(',', line.IndexOf(',') + 1) - line.IndexOf(',') - 1));
                         t.TYPE = Convert.ToInt32(line.Substring(line.IndexOf(',', line.IndexOf(',') + 1) + 1));
                         room_type.Add(t);
-
                     }
-
                 }
-
             }
         } //Initialize()
 
@@ -94,11 +91,9 @@ namespace r_like
         {
             return room_type[index];
         }
-
         public int GetRoomTypesSize()
         {
             return room_type.Count;
         }
-
     }
 }
