@@ -10,6 +10,7 @@ namespace r_like
 {
     class Creature
     {
+
         const int SCREEN_WIDTH = 800;
         const int SCREEN_HEIGHT = 800;
 
