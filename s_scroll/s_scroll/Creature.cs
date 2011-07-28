@@ -10,6 +10,9 @@ namespace r_like
 {
     class Creature
     {
+
+        //A* gets implemented on this branch
+
         const int SCREEN_WIDTH = 800;
         const int SCREEN_HEIGHT = 800;
 
