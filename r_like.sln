@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "r_like", "s_scroll\s_scroll\r_like.csproj", "{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "s_scrollContent", "s_scroll\s_scrollContent\s_scrollContent.contentproj", "{0390D1D5-3C08-4EA9-B38C-B4EBA7A2E5F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}.Debug|x86.ActiveCfg = Debug|x86
+		{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}.Debug|x86.Build.0 = Debug|x86
+		{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}.Release|x86.ActiveCfg = Release|x86
+		{DD05FB29-AF17-436D-AF5D-8F50EC5EDB3C}.Release|x86.Build.0 = Release|x86
+		{0390D1D5-3C08-4EA9-B38C-B4EBA7A2E5F9}.Debug|x86.ActiveCfg = Debug|x86
+		{0390D1D5-3C08-4EA9-B38C-B4EBA7A2E5F9}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -71,10 +71,8 @@ namespace r_like
 
         private void MoveOnGrid(int old_x, int old_y, int new_x, int new_y)
         {
-
             grid_spot_is_full[old_x + (old_y * GRID_WIDTH)] = false;
             grid_spot_is_full[new_x + (new_y * GRID_WIDTH)] = true;
-
         }
         private void AddToGrid(int x, int y)
         {

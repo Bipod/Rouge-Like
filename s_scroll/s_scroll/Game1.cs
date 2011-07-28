@@ -24,6 +24,7 @@ namespace r_like
         SpriteBatch spriteBatch;
         Grid grid;
         Player player;
+        Creature creature;
         Wall wall;
         RoomGen room_gen;
         List<RoomGen.wall_positions> walls = new List<RoomGen.wall_positions>();
@@ -50,6 +51,7 @@ namespace r_like
             grid = new Grid();
 
             player = new Player(grid);
+            creature = new Creature(grid);
             wall = new Wall(grid);
             room_gen = new RoomGen();
             room_gen.Initialize();
@@ -65,6 +67,7 @@ namespace r_like
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player.LoadTexture(this.Content, "player");
+            creature.LoadTexture(this.Content, "ghost");
             grid.LoadTexture(this.Content, "grid_square");
             wall.LoadTexture(this.Content, "wall");
 
@@ -96,8 +99,8 @@ namespace r_like
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-            player.Update();
+            if (player.Update())
+                creature.Update();
 
             base.Update(gameTime);
         }
@@ -113,6 +116,7 @@ namespace r_like
             spriteBatch.Begin();
             grid.DrawGrid(spriteBatch);
             player.Draw(spriteBatch);
+            creature.Draw(spriteBatch);
 
             for (int i = 0; i < walls.Count; i++)
             {
