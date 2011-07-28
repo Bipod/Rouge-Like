@@ -18,7 +18,7 @@ namespace r_like
 
         public void Initialize()
         {
-            file = System.IO.File.ReadAllLines("gen_data/rooms.txt");
+            file = System.IO.File.ReadAllLines("Content/rooms.txt");
             bool reading_room_in = false;
             string line;
 

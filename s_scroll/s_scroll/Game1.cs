@@ -100,7 +100,7 @@ namespace r_like
                 this.Exit();
 
             if (player.Update())
-                creature.Update();
+                creature.Update(player);
 
             base.Update(gameTime);
         }
