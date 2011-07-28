@@ -45,7 +45,6 @@ namespace r_like
             AddToGrid(x, y);
             sprBat.Draw(texture, new Vector2(x * 32, y * 32), source, Color.White);
         }
-
         public void AddSpriteToGrid(SpriteBatch sprBat, Texture2D texture, int x, int y)
         {
             AddToGrid(x, y);
@@ -57,7 +56,6 @@ namespace r_like
             MoveOnGrid(old_x, old_y, new_x, new_y);
             sprBat.Draw(texture, new Rectangle(new_x * 32, new_y * 32, texture.Width, texture.Height), Color.White);
         }
-
         public void MoveSpriteToGrid(SpriteBatch sprBat, Texture2D texture, Rectangle source, int old_x, int old_y, int new_x, int new_y)
         {
             MoveOnGrid(old_x, old_y, new_x, new_y);
@@ -74,6 +72,7 @@ namespace r_like
             grid_spot_is_full[old_x + (old_y * GRID_WIDTH)] = false;
             grid_spot_is_full[new_x + (new_y * GRID_WIDTH)] = true;
         }
+
         private void AddToGrid(int x, int y)
         {
             grid_spot_is_full[x + (y * GRID_WIDTH)] = true;
