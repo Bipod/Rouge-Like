@@ -12,6 +12,8 @@ namespace r_like
     class Player
     {
 
+        #region Variables
+
         const int SCREEN_WIDTH = 800;
         const int SCREEN_HEIGHT = 800;
 
@@ -24,10 +26,15 @@ namespace r_like
         Creature.grid_position old_position;
         private KeyboardState old_state;
         Grid grid;
+        public Inventory inventory;
+        #endregion
 
-        public Player(Grid g)
+        #region Methods
+
+        public Player(Grid g, Inventory inv)
         {
             grid = g;
+            inventory = inv;
         }
 
         public void LoadTexture(ContentManager conMan, string name)
@@ -45,13 +52,27 @@ namespace r_like
         public bool Update()
         {
             KeyboardState cur_state = Keyboard.GetState();
-            if (Move(cur_state) || NonMove(cur_state))
+            if (Move(cur_state)
+                || UseFromInventory(cur_state)
+                || IsSkipping(cur_state))
                 return true;
             else
                 return false;
         }
 
-        public bool Move(KeyboardState cur_state)
+        private bool UseFromInventory(KeyboardState cur_state)
+        {
+            if (old_state.IsKeyUp(Keys.D1) && cur_state.IsKeyDown(Keys.D1))
+            {
+                inventory.Use(0);
+                old_state = cur_state;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private bool Move(KeyboardState cur_state)
         {
             old_position = position;
             bool is_moving = false;
@@ -92,7 +113,7 @@ namespace r_like
             return is_moving;
         } // Move
 
-        private bool NonMove(KeyboardState cur_state)
+        private bool IsSkipping(KeyboardState cur_state)
         {
             bool is_skipping = false;
             if (old_state.IsKeyUp(Keys.Space) && cur_state.IsKeyDown(Keys.Space))
@@ -104,3 +125,4 @@ namespace r_like
 
     }
 }
+        #endregion

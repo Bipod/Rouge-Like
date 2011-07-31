@@ -14,6 +14,8 @@ namespace r_like
     /// <summary>
     /// This is the main type for your game
     /// </summary>
+    /// 
+
     public class r_like : Microsoft.Xna.Framework.Game
     {
         // Static variables or whatever they're called.
@@ -24,10 +26,12 @@ namespace r_like
         SpriteBatch spriteBatch;
         Grid grid;
         Player player;
-        Creature creature;
+        //Creature creature;
         Wall wall;
         RoomGen room_gen;
         List<RoomGen.wall_positions> walls = new List<RoomGen.wall_positions>();
+        Inventory inventory;
+        TeleportWand wand;
 
         public r_like()
         {
@@ -49,9 +53,18 @@ namespace r_like
             // TODO: Add your initialization logic here
 
             grid = new Grid();
+            inventory = new Inventory();
+            player = new Player(grid, inventory);
 
-            player = new Player(grid);
-            creature = new Creature(grid);
+            // Whew, avoided circular dependencies!
+            inventory.SetPlayer(player);
+
+            Creature.grid_position wand_pos = new Creature.grid_position();
+            wand_pos.X = 8;
+            wand_pos.Y = 8;
+            wand = new TeleportWand(grid, wand_pos, player);
+
+            //creature = new Creature(grid);
             wall = new Wall(grid);
             room_gen = new RoomGen();
             room_gen.Initialize();
@@ -67,9 +80,10 @@ namespace r_like
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player.LoadTexture(this.Content, "player");
-            creature.LoadTexture(this.Content, "ghost");
+            //creature.LoadTexture(this.Content, "ghost");
             grid.LoadTexture(this.Content, "grid_square");
             wall.LoadTexture(this.Content, "wall");
+            wand.LoadTexture(this.Content, "teleport_wand");
 
             for (int i = 0; i < room_gen.GetRoomTypesSize(); i++)
             {
@@ -100,7 +114,9 @@ namespace r_like
                 this.Exit();
 
             if (player.Update())
-                creature.Update(player);
+                wand.Update();
+
+                //creature.Update(player);
 
             base.Update(gameTime);
         }
@@ -116,7 +132,9 @@ namespace r_like
             spriteBatch.Begin();
             grid.DrawGrid(spriteBatch);
             player.Draw(spriteBatch);
-            creature.Draw(spriteBatch);
+            //creature.Draw(spriteBatch);
+            wand.Draw(spriteBatch);
+
 
             for (int i = 0; i < walls.Count; i++)
             {

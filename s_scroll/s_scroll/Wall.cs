@@ -61,7 +61,7 @@ namespace r_like
 
         public void Draw(SpriteBatch sprBat, int x, int y, int type)
         {
-            grid.AddSpriteToGrid(sprBat, texture_sheet, textures[type], x, y);
+            grid.DrawSpriteOnGrid(sprBat, texture_sheet, textures[type], x, y, true);
 
             position = new Vector2(x, y);
         }

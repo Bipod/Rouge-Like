@@ -11,6 +11,9 @@ namespace r_like
 
     class Grid
     {
+
+        #region Variables
+
         private Texture2D texture;
         const int SCREEN_WIDTH = 800;
         const int SCREEN_HEIGHT = 800;
@@ -19,6 +22,9 @@ namespace r_like
 
         private bool[] grid_spot_is_full = new bool[SCREEN_WIDTH * SCREEN_HEIGHT / 1024];   //1024 is pow(32, 2)
 
+        #endregion
+
+        #region Methods
 
         public void LoadTexture(ContentManager conMan, string name)
         {
@@ -40,14 +46,16 @@ namespace r_like
             }
         }
 
-        public void AddSpriteToGrid(SpriteBatch sprBat, Texture2D texture, Rectangle source, int x, int y)
+        public void DrawSpriteOnGrid(SpriteBatch sprBat, Texture2D texture, Rectangle source, int x, int y, bool is_already_on)
         {
-            AddToGrid(x, y);
+            if (!is_already_on)
+                AddToGrid(x, y);
             sprBat.Draw(texture, new Vector2(x * 32, y * 32), source, Color.White);
         }
-        public void AddSpriteToGrid(SpriteBatch sprBat, Texture2D texture, int x, int y)
+        public void DrawSpriteOnGrid(SpriteBatch sprBat, Texture2D texture, int x, int y, bool is_already_on)
         {
-            AddToGrid(x, y);
+            if(!is_already_on)
+                AddToGrid(x, y);
             sprBat.Draw(texture, new Rectangle(x * 32, y * 32, texture.Width, texture.Height), Color.White);
         }
 
@@ -80,3 +88,5 @@ namespace r_like
 
     }
 }
+
+        #endregion

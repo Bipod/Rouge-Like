@@ -10,7 +10,6 @@ namespace r_like
 {
     class Creature
     {
-
         const int SCREEN_WIDTH = 800;
         const int SCREEN_HEIGHT = 800;
 
@@ -36,7 +35,7 @@ namespace r_like
         }
 
         public void LoadTexture(ContentManager conMan, string name)
-        {
+        {            
             texture_sheet = conMan.Load<Texture2D>(name);
         }
 
@@ -58,7 +57,8 @@ namespace r_like
                 if (r2 == 0)
                     is_straight_line = true;
 
-                r2 = Math.Sign(r2);
+                if (!is_straight_line)
+                    r2 = Math.Sign(r2);
                 if (!grid.IsGridSpotFull(position.X + r2, position.Y) && !is_straight_line)
                     position.X += r2;
                 else if (!grid.IsGridSpotFull(position.X, position.Y + r2))
@@ -71,13 +71,14 @@ namespace r_like
                 if (r2 == 0)
                     is_straight_line = true;
 
-                r2 = Math.Sign(r2);
+                if(!is_straight_line)
+                    r2 = Math.Sign(r2);
                 if (!grid.IsGridSpotFull(position.X, position.Y + r2) && !is_straight_line)
                     position.Y += r2;
                 else if (!grid.IsGridSpotFull(position.X + r2, position.Y))
                     position.X += r2;
             }
-
+            
         } //Update
 
     }
